@@ -1,6 +1,87 @@
 <html>
-    <head><script>
-        //get parameters from query string
-</script></head>
-    <body><p> Thank you for submitting</p></body>
+    <head>
+        <link src ="RSVP.html">
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/core.js"></script>
+        <script>        
+            //This function selects and displays the values entered in the RSVP page, basically  
+            function getValues(){
+                var values = window.location.search.slice(1).split("&");
+                /*for (var x = 0; x < values.length; x++){
+                    console.log (values[x])
+                }*/
+                     
+                    var fname = values[0].split("=");
+                    var lname = values[1].split("=");
+                    var cell = values[2].split("=");
+                    var email = values[3].split("=");
+                    var numOfPeople = values[4].split("=");
+                    var diet = values[5].split("=");
+                    //console.log(values);
+
+                    str = ("Hey"+ " " +fname[1]+" "+lname[1]+" "+ "thank you for RSVPying");
+
+                    var firstName = fname[1];
+                    var lastName = lname[1]
+                    var cellNum = cell[1]
+                    var mail = email[1].replace("%40", "@");
+                    var alergicTo= diet[1]
+                    var peopleNum = numOfPeople[1]
+
+                    document.getElementById("p1").innerHTML = str;
+                    document.getElementById("fname").innerHTML = firstName;
+                    document.getElementById("lname").innerHTML = lastName;
+                    document.getElementById("cell").innerHTML = cellNum;
+                    document.getElementById("email").innerHTML = mail;
+                    document.getElementById("num").innerHTML = peopleNum;
+                    document.getElementById("diet").innerHTML = alergicTo;
+                    
+                 }; 
+            
+                 
+                      
+</script>
+<style>
+    
+    td{border:solid;
+          border-radius:4px;}
+</style>
+    </head>
+
+    <body onload = "getValues()">
+         
+    <p id="p1">Confirmation page</p>
+    <table>
+        <tr>
+            <th>......</th>
+            <th>Data</th>
+        </tr>
+            
+        <tr>
+            <td>First Name:</td>
+            <td id = "fname">mark</td>
+        </tr>
+        <tr>
+            <td>Last Name:</td>
+            <td id = "lname">mark</td>
+        </tr>
+        <tr>
+            <td>Contact Number:</td>
+            <td id = "cell">mark</td>
+        </tr>
+        <tr>
+            <td>Email Adddress:</td>
+            <td id = "email">mark</td>
+        <tr>
+            <td>What you Don't like:</td>
+            <td id = "diet">mark</td>
+        </tr>
+        <tr>
+            <td>Number of people:</td>
+            <td id = "num">mark</td>
+        <tr>
+    </table>
+
+
+
+    </body>
 </html>
